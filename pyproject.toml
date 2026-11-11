@@ -32,3 +32,17 @@ aarch64 = "aarch64_variant_provider"
 
 [tool.hatch.version]
 path = "aarch64_variant_provider/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "aarch64_variant_provider/*.py",
+    "aarch64_variant_provider/vendor/*.py",
+    "aarch64_variant_provider/vendor/archspec/COPYRIGHT",
+    "aarch64_variant_provider/vendor/archspec/LICENSE-*",
+    "aarch64_variant_provider/vendor/archspec/NOTICE",
+    "aarch64_variant_provider/vendor/archspec/archspec/*.py",
+    "aarch64_variant_provider/vendor/archspec/archspec/cpu/*.py",
+    "aarch64_variant_provider/vendor/archspec/archspec/json/cpu",
+    "aarch64_variant_provider/vendor/archspec/archspec/vendor/cpuid/LICENSE",
+    "aarch64_variant_provider/vendor/archspec/archspec/vendor/cpuid/cpuid.py",
+]
