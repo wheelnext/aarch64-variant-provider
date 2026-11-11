@@ -1,6 +1,6 @@
 [build-system]
-requires = ["flit_core >=3.11,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.uv]
 dev-dependencies = [
@@ -9,15 +9,16 @@ dev-dependencies = [
 
 [project]
 name = "aarch64-variant-provider"
+description = "A wheel variant provider with properties specific to AArch64 CPUs"
 authors = [{name = "Michał Górny", email = "mgorny@quansight.com"}]
 license = "MIT"
 license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.9"
-dynamic = ["version", "description"]
+dynamic = ["version"]
 dependencies = []
 
-[project.optional-dependencies]
+[dependency-groups]
 test = [
     "pytest",
     "pytest-mock",
@@ -28,3 +29,6 @@ Home = "https://github.com/wheelnext/aarch64-variant-provider/"
 
 [project.entry-points.variant_plugins]
 aarch64 = "aarch64_variant_provider"
+
+[tool.hatch.version]
+path = "aarch64_variant_provider/__init__.py"
