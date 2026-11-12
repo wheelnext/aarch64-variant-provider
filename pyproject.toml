@@ -12,7 +12,13 @@ name = "aarch64-variant-provider"
 description = "A wheel variant provider with properties specific to AArch64 CPUs"
 authors = [{name = "Michał Górny", email = "mgorny@quansight.com"}]
 license = "MIT"
-license-files = ["LICENSE"]
+license-files = [
+    "LICENSE",
+    "aarch64_variant_provider/vendor/archspec/COPYRIGHT",
+    "aarch64_variant_provider/vendor/archspec/LICENSE-*",
+    "aarch64_variant_provider/vendor/archspec/NOTICE",
+    "aarch64_variant_provider/vendor/archspec/archspec/vendor/cpuid/LICENSE",
+]
 readme = "README.md"
 requires-python = ">=3.9"
 dynamic = ["version"]
@@ -37,12 +43,8 @@ path = "aarch64_variant_provider/__init__.py"
 include = [
     "aarch64_variant_provider/*.py",
     "aarch64_variant_provider/vendor/*.py",
-    "aarch64_variant_provider/vendor/archspec/COPYRIGHT",
-    "aarch64_variant_provider/vendor/archspec/LICENSE-*",
-    "aarch64_variant_provider/vendor/archspec/NOTICE",
     "aarch64_variant_provider/vendor/archspec/archspec/*.py",
     "aarch64_variant_provider/vendor/archspec/archspec/cpu/*.py",
     "aarch64_variant_provider/vendor/archspec/archspec/json/cpu",
-    "aarch64_variant_provider/vendor/archspec/archspec/vendor/cpuid/LICENSE",
     "aarch64_variant_provider/vendor/archspec/archspec/vendor/cpuid/cpuid.py",
 ]
