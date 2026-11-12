@@ -21,15 +21,6 @@ def test_cortex_a72_configs(mocker, plugin):
     ).return_value = archspec_cpu.TARGETS["cortex_a72"]
     assert plugin.get_supported_configs() == [
         VariantFeatureConfig("version", ["8a"]),
-        VariantFeatureConfig("aes", ["on"]),
-        VariantFeatureConfig("asimd", ["on"]),
-        VariantFeatureConfig("cpuid", ["on"]),
-        VariantFeatureConfig("crc32", ["on"]),
-        VariantFeatureConfig("evtstrm", ["on"]),
-        VariantFeatureConfig("fp", ["on"]),
-        VariantFeatureConfig("pmull", ["on"]),
-        VariantFeatureConfig("sha1", ["on"]),
-        VariantFeatureConfig("sha2", ["on"]),
     ]
 
 
@@ -39,18 +30,6 @@ def test_a64fx_configs(mocker, plugin):
     ).return_value = archspec_cpu.TARGETS["a64fx"]
     assert plugin.get_supported_configs() == [
         VariantFeatureConfig("version", ["8.2a", "8.1a", "8a"]),
-        VariantFeatureConfig("asimdhp", ["on"]),
-        VariantFeatureConfig("dcpop", ["on"]),
-        VariantFeatureConfig("fcma", ["on"]),
-        VariantFeatureConfig("fphp", ["on"]),
-        VariantFeatureConfig("sve", ["on"]),
-        VariantFeatureConfig("asimd", ["on"]),
-        VariantFeatureConfig("cpuid", ["on"]),
-        VariantFeatureConfig("crc32", ["on"]),
-        VariantFeatureConfig("evtstrm", ["on"]),
-        VariantFeatureConfig("fp", ["on"]),
-        VariantFeatureConfig("sha1", ["on"]),
-        VariantFeatureConfig("sha2", ["on"]),
     ]
 
 
@@ -86,7 +65,6 @@ def test_get_compiler_flags(plugin):
         "14.3.0",
         [
             VariantProperty("aarch64", "version", "8.4a"),
-            VariantProperty("aarch64", "sve", "on"),
         ],
     ) == ["-march=armv8.4-a"]
 
@@ -98,7 +76,6 @@ def test_get_compiler_flags_no_level(plugin):
             "clang",
             "20.1.8",
             [
-                VariantProperty("aarch64", "sve", "on"),
             ],
         )
         == []
