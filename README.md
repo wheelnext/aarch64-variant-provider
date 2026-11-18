@@ -66,7 +66,7 @@ fine, disabling the code in question).
 ## Detection
 
 Detection is backed by archspec and shared between
-[provider-variant-x86-64](https://github.com/wheelnext/provider-variant-x86-64)
+[x86_64-variant-provider](https://github.com/wheelnext/x86_64-variant-provider)
 and
 [aarch64-variant-provider](https://github.com/wheelnext/aarch64-variant-provider).
 The output from each command is mapped against the
