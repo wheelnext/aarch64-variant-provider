@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
-from .vendor.archspec.archspec import cpu as archspec_cpu
+import archspec.cpu
 
 if TYPE_CHECKING:
     from collections.abc import Generator
@@ -51,18 +51,18 @@ class AArch64Plugin:
         return [
             VariantFeatureConfig(
                 "version",
-                list(cls._version_range(archspec_cpu.TARGETS[cls.max_known_version])),
+                list(cls._version_range(archspec.cpu.TARGETS[cls.max_known_version])),
             ),
         ] + [VariantFeatureConfig(feature, ["on"]) for feature in cls.all_features]
 
     @classmethod
     def get_supported_configs(cls) -> list[VariantFeatureConfig]:
-        microarch = archspec_cpu.host()
+        microarch = archspec.cpu.host()
         if "aarch64" in (microarch.generic, *microarch.ancestors):
             generic = microarch.generic
             # ceil to max supported version
             if cls.max_known_version in generic.ancestors:
-                generic = archspec_cpu.TARGETS[cls.max_known_version]
+                generic = archspec.cpu.TARGETS[cls.max_known_version]
             return [
                 VariantFeatureConfig("version", list(cls._version_range(generic))),
             ] + [
