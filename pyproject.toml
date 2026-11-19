@@ -24,3 +24,6 @@ Home = "https://github.com/wheelnext/aarch64-variant-provider/"
 
 [project.entry-points.variant_plugins]
 aarch64 = "aarch64_variant_provider"
+
+[tool.flit.sdist]
+include = ["tests/"]
